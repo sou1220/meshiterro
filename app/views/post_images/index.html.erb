@@ -1,0 +1,13 @@
+<!--コントローラから渡された@post_images変数内から1つずつ取り出して、post_image変数へ格納-->
+<% @post_images.each do |post_image| %>
+  <div>
+    <!--image_tagを使いpost_imageにActiveStorageで設定したimageを表示-->
+    <!--post_image.get_imageの部分はPostImageモデル内に記述したメソッドを呼び出し-->
+    <%= image_tag post_image.get_image %>
+    <!--post_image.カラム名とすることでデータ取得-->
+    <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %></p>
+    <p>ショップ名：<%= post_image.shop_name %></p>
+    <p>説明：<%= post_image.caption %></p>
+    <p>ユーザーネーム：<%= post_image.user.name %></p>
+  </div>
+<% end %>
